@@ -1,0 +1,171 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #0B0A0F;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.skin-market-wrapper {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.skin-market-title {
+    font-size: 48px;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.skin-grid {
+    width: 90vw;
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* this helps the cards look good when they go "weeeee" */
+.scroll-wrapper {
+    perspective: 1500px;
+    aspect-ratio: 3/4;
+}
+
+.skin-scroll {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    cursor: pointer;
+}
+
+.skin-scroll.flipped {
+    transform: rotateY(180deg);
+}
+
+.scroll-front,
+.scroll-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* The Front Side */
+.scroll-front {
+    background: #14121A;
+    border: 3px solid #24202A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* The Back Side */
+.scroll-back {
+    background: #14121A;
+    border: 3px solid #24202A;
+    transform: rotateY(180deg);
+}
+
+.scroll-front-overlay{
+    position: absolute;
+    inset:0;
+    border-radius:12px;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-image-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.card-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0,0,0,.95), rgba(0,0,0,.6), transparent);
+}
+
+/* makes the text pretty */
+.champ-name { font-size: 22px; font-weight: bold; margin-bottom: 5px; }
+.skin-title { font-size: 16px; }
+.tier-badge {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-block;
+}
+.essence-cost { font-size: 18px; }
+
+/* for the modal system */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset:0;
+    background: rgba(0,0,0,.9);
+    z-index:1000;
+    justify-content:center;
+    align-items:center;
+}
+.modal-overlay.active { display: flex; }
+
+.modal-content {
+    background:#14121A;
+    border:3px solid;
+    border-radius:16px;
+    max-width:800px;
+    width:100%;
+    animation: pop .25s ease;
+}
+
+/* makes the cards go "woop" */
+@keyframes pop { from{scale:.9;opacity:0} to{scale:1;opacity:1} }
+
+.modal-close {
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#222;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.modal-image {
+    width:100%;
+    height:400px;
+    object-fit:cover;
+    border-radius:16px 16px 0 0;
+}
+
+.modal-details { padding:25px; }
+
+.modal-champion-name {font-size:32px;font-weight:bold;}
+.modal-skin-name {font-size:22px;}
+.modal-tier-badge {display:inline-block;padding:6px 12px;margin-top:10px;border-radius:6px;}
+.modal-essence {font-size:28px;margin-top:10px;}
+.modal-description {margin-top:15px;opacity:.85;}
