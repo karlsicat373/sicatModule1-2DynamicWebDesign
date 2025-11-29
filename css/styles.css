@@ -19,8 +19,25 @@ body {
 .skin-market-title {
     font-size: 48px;
     letter-spacing: 3px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-weight: bold;
+}
+
+.select-all-btn {
+    background: linear-gradient(135deg, #6b5cff, #d400ff);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: transform 0.2s;
+}
+
+.select-all-btn:hover {
+    transform: scale(1.05);
 }
 
 .skin-grid {
@@ -133,6 +150,7 @@ body {
     border-radius:16px;
     max-width:800px;
     width:100%;
+    position: relative;
     animation: pop .25s ease;
 }
 
@@ -153,6 +171,7 @@ body {
     justify-content:center;
     font-size:22px;
     cursor:pointer;
+    z-index: 10;
 }
 
 .modal-image {
@@ -169,3 +188,170 @@ body {
 .modal-tier-badge {display:inline-block;padding:6px 12px;margin-top:10px;border-radius:6px;}
 .modal-essence {font-size:28px;margin-top:10px;}
 .modal-description {margin-top:15px;opacity:.85;}
+
+.purchase-btn {
+    background: linear-gradient(135deg, #00e6ff, #6b5cff);
+    border: none;
+    padding: 12px 40px;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s;
+}
+
+.purchase-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 230, 255, 0.4);
+}
+
+.purchase-btn.added {
+    background: #28a745;
+}
+
+/* Cart sidebar */
+.cart-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    background: #14121A;
+    border-left: 3px solid #24202A;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 999;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.cart-sidebar.open {
+    transform: translateX(0);
+}
+
+.cart-toggle {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    background: linear-gradient(135deg, #6b5cff, #d400ff);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.2s;
+}
+
+.cart-toggle:hover {
+    transform: scale(1.05);
+}
+
+.cart-count {
+    background: #ff3b3b;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.cart-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #24202A;
+}
+
+.cart-item {
+    background: #1a1820;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.cart-item-price {
+    color: #6b5cff;
+}
+
+.remove-btn {
+    background: #ff3b3b;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #24202A;
+}
+
+.cart-total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.bundle-discount {
+    background: linear-gradient(135deg, #ff9b00, #d400ff);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+.bundle-discount-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.discount-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ff88;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #00e6ff, #6b5cff);
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 40px 20px;
+    opacity: 0.5;
+}
